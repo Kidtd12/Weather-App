@@ -1,0 +1,410 @@
+/* Reset and base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(270deg, #667eea, #764ba2, #6b8dd6, #b88ce0);
+  background-size: 800% 800%;
+  animation: gradientShift 20s ease infinite;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Animated background gradient */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.weather-container {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 3rem 4rem;
+  border-radius: 24px;
+  box-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.3),
+    inset 0 0 60px rgba(255, 255, 255, 0.25);
+  max-width: 460px;
+  width: 90vw;
+  text-align: center;
+  animation: fadeInScale 0.8s ease forwards;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, #ff6ec4, #7873f5, #4ade80, #f43f5e);
+  background-size: 400% 400%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gradientFlow 6s linear infinite, textPulse 2.5s ease-in-out infinite;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+
+.input-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem; /* Adds a gap between input and button */
+  flex-wrap: wrap; /* Allows wrapping on small screens */
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+input#city {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 40px;
+  font-size: 1.1rem;
+  outline: none;
+  color: #333;
+  font-weight: 600;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+  user-select: text;
+ 
+  
+  min-width: 180px; /* Prevents shrinking too much */
+
+
+}
+
+input#city::placeholder {
+  color: #bbb;
+  font-weight: 500;
+}
+
+input#city:focus {
+  box-shadow: 0 0 20px 4px #a38eff;
+  transform: scale(1.03);
+  background-color: #fff;
+  border-radius: 40px;
+}
+
+button#get-weather-btn {
+  background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+  border: none;
+  border-radius: 40px;
+  color: #4b0082;
+  padding: 1rem 2.4rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(161, 140, 209, 0.6);
+  transition:
+    background 0.4s ease,
+    box-shadow 0.4s ease,
+    transform 0.3s ease;
+  user-select: none;
+
+
+
+
+ 
+  
+  
+  font-weight: bold;
+  white-space: nowrap; /* Prevents text breaking */
+
+}
+
+button#get-weather-btn:hover,
+button#get-weather-btn:focus {
+  background: linear-gradient(135deg, #fbc2eb, #a18cd1);
+  box-shadow: 0 0 30px 8px #c39eff;
+  transform: scale(1.1);
+  outline: none;
+}
+
+#weather-result {
+  height: 200px; /* fixed height */
+  overflow-y: scroll; /* always show scrollbar */
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.3);
+  color: #1a0a4a;
+  line-height: 1.6;
+  user-select: none;
+  transition: background 0.5s ease, opacity 0.8s ease;
+  animation: fadeIn 0.8s ease forwards;
+  scrollbar-width: thin;
+  scrollbar-color: #a38eff transparent;
+}
+
+/* Style scrollbar for Chrome/Edge */
+#weather-result::-webkit-scrollbar {
+  width: 8px;
+}
+
+#weather-result::-webkit-scrollbar-thumb {
+  background-color: #a38eff;
+  border-radius: 4px;
+}
+
+
+#weather-result img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 0.6rem;
+  user-select: none;
+}
+
+/* Loader animation */
+.loader {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #c39eff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 0.5rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Fade in container */
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Fade in weather result */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .weather-container {
+    padding: 2rem 2.5rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  button#get-weather-btn {
+    padding: 1rem 1.6rem;
+    font-size: 1rem;
+  }
+
+  #weather-result {
+    font-size: 1.1rem;
+    padding: 1.5rem 2rem;
+    min-height: 130px;
+  }
+}
+
+
+/* Animate the entire weather result */
+#weather-result {
+  height: 200px;
+  overflow-y: scroll;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a0a4a;
+  line-height: 1.6;
+  scrollbar-width: thin;
+  scrollbar-color: #a38eff transparent;
+  animation: fadeSlideIn 1s ease forwards;
+}
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Weather heading (City Name) with animated gradient */
+#weather-result h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #a18cd1, #fbc2eb, #a18cd1);
+  background-size: 200% 200%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gradientText 4s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes gradientText {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* Weather description glowing effect */
+#weather-result p:first-of-type {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #fff;
+  text-shadow: 0 0 10px #c39eff, 0 0 20px #a18cd1;
+  animation: glowPulse 2s infinite alternate;
+}
+
+@keyframes glowPulse {
+  0% {
+    text-shadow: 0 0 10px #c39eff, 0 0 20px #a18cd1;
+  }
+  100% {
+    text-shadow: 0 0 20px #fbc2eb, 0 0 40px #a18cd1;
+  }
+}
+
+/* Animate numeric data like temperature */
+#weather-result p strong {
+  display: inline-block;
+  animation: bounceIn 0.8s ease forwards;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Scrollbar styling remains */
+#weather-result::-webkit-scrollbar {
+  width: 8px;
+}
+#weather-result::-webkit-scrollbar-thumb {
+  background-color: #a38eff;
+  border-radius: 4px;
+}
+
+/* Floating emoji container */
+.floating-icons {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none; /* doesn't block clicks */
+  z-index: 0;
+}
+
+.floating-icons span {
+  position: absolute;
+  font-size: 2.5rem;
+  opacity: 0.15;
+  animation: float 15s linear infinite;
+}
+
+/* Position emojis randomly */
+.floating-icons span:nth-child(1) {
+  top: 10%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.floating-icons span:nth-child(2) {
+  top: 40%;
+  left: 70%;
+  animation-delay: 2s;
+}
+
+.floating-icons span:nth-child(3) {
+  top: 60%;
+  left: 30%;
+  animation-delay: 4s;
+}
+
+.floating-icons span:nth-child(4) {
+  top: 80%;
+  left: 80%;
+  animation-delay: 6s;
+}
+
+.floating-icons span:nth-child(5) {
+  top: 20%;
+  left: 90%;
+  animation-delay: 8s;
+}
+
+/* Floating animation */
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateY(-50px) rotate(360deg);
+    opacity: 0.15;
+  }
+}
+
+

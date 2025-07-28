@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🌤 Weather App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <div class="floating-icons">
+  <span>☀️</span>
+  <span>🌤️</span>
+  <span>🌧️</span>
+  <span>❄️</span>
+  <span>🌈</span>
+</div>
+
+    <header class="header">
+  <h1>🌤 የአየር ንብረት </h1>
+  <p class="subtitle" id="typewriter"></p>
+</header>
+
+  <div class="weather-container">
+    <h1>🌤 Weather App</h1>
+    <div class="input-group">
+      <input
+        type="text"
+        id="city"
+        placeholder="Enter city name"
+        aria-label="City name"
+        autocomplete="off"
+      />
+
+
+      <button id="get-weather-btn" aria-label="Get Weather">Get Weather/
+አግኝ</button>
+    </div> 
+
+    
+ 
+</div>
+
+    <div id="weather-result" role="region" aria-live="polite"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
