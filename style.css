@@ -404,7 +404,9 @@ button#get-weather-btn:focus {
   100% {
     transform: translateY(-50px) rotate(360deg);
     opacity: 0.15;
+    color:red;
   }
 }
+
 
 
