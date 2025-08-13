@@ -158,10 +158,11 @@ function dragEnd() {
   document.removeEventListener("touchmove", dragMove);
   document.removeEventListener("mouseup", dragEnd);
   document.removeEventListener("touchend", dragEnd);
- document.removeEventListener("touchend", dragEnd);
+
 
   
 }
+
 
 
 
