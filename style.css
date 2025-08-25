@@ -4,7 +4,7 @@
   padding: 0;
   box-sizing: border-box;
  
-  color:red;
+  
   
 }
 
@@ -414,6 +414,7 @@ button#get-weather-btn:focus {
     
   }
 }
+
 
 
 
