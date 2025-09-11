@@ -3,7 +3,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-    b
+   box-sizing: border-box;
+    
   
  
  
@@ -431,6 +432,7 @@ button#get-weather-btn:focus {
     
   }
 }
+
 
 
 
