@@ -3,6 +3,7 @@ const weatherResult = document.getElementById("weather-result");
 const cityInput = document.getElementById("city");
 const getWeatherBtn = document.getElementById("get-weather-btn");
 
+const getWeatherBtn = document.getElementById("get-weather-btn");
 
 
 
@@ -166,6 +167,7 @@ function dragEnd() {
 
   
 }
+
 
 
 
